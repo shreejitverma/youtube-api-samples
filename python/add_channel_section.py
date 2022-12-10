@@ -60,13 +60,8 @@ def enable_browse_view(youtube):
   ).execute()
 
 def add_channel_section(youtube, args):
-  channels = None
-  if args.channels:
-    channels = re.split('\s*,\s*', args.channels)
-  playlists = None
-  if args.playlists:
-    playlists = re.split('\s*,\s*', args.playlists)
-
+  channels = re.split('\s*,\s*', args.channels) if args.channels else None
+  playlists = re.split('\s*,\s*', args.playlists) if args.playlists else None
   body = dict(
     snippet=dict(
       type=args.type,

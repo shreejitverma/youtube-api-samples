@@ -60,10 +60,7 @@ def get_authenticated_service():
   return build(API_SERVICE_NAME, API_VERSION, credentials = credentials)
 
 def initialize_upload(youtube, options):
-  tags = None
-  if options.keywords:
-    tags = options.keywords.split(',')
-
+  tags = options.keywords.split(',') if options.keywords else None
   body=dict(
     snippet=dict(
       title=options.title,

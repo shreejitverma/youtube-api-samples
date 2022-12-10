@@ -123,13 +123,13 @@ def download_report(youtube_reporting, report_url, local_file):
 # Prompt the user to select a job and return the specified ID.
 def get_job_id_from_user():
   job_id = raw_input('Please enter the job id for the report retrieval: ')
-  print ('You chose "%s" as the job Id for the report retrieval.' % job_id)
+  print(f'You chose "{job_id}" as the job Id for the report retrieval.')
   return job_id
 
 # Prompt the user to select a report URL and return the specified URL.
 def get_report_url_from_user():
   report_url = raw_input('Please enter the report URL to download: ')
-  print ('You chose "%s" to download.' % report_url)
+  print(f'You chose "{report_url}" to download.')
   return report_url
 
 if __name__ == '__main__':

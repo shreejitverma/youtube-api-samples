@@ -90,7 +90,7 @@ class MainHandler(webapp2.RequestHandler):
     for channel in channels_response['items']:
       uploads_list_id = channel['contentDetails']['relatedPlaylists']['uploads']
       channel_name = channel['snippet']['title']
-      
+
       next_page_token = ''
       while next_page_token is not None:
         playlistitems_response = youtube.playlistItems().list(
@@ -100,12 +100,10 @@ class MainHandler(webapp2.RequestHandler):
             pageToken=next_page_token
         ).execute()
 
-        for playlist_item in playlistitems_response['items']:
-          videos.append(playlist_item)
-          
+        videos.extend(iter(playlistitems_response['items']))
         next_page_token = playlistitems_response.get('tokenPagination', {}).get(
             'nextPageToken')
-        
+
         if len(videos) > 100:
           break
 
