@@ -118,8 +118,9 @@ def get_playlist_localization(youtube, args):
   # object will contain metadata in the default language.
   localized = results['items'][0]['snippet']['localized']
 
-  print ('Playlist title is "%s" and description is "%s" in language "%s"'
-         % (localized['title'], localized['description'], args.language))
+  print(
+      f"""Playlist title is "{localized['title']}" and description is "{localized['description']}" in language "{args.language}\""""
+  )
 
 
 # Call the API's playlists.list method to list existing localizations

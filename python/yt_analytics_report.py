@@ -61,8 +61,7 @@ def get_authenticated_service():
   flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRETS_FILE, SCOPES)
   credentials = flow.run_console()
 
-  api_service = build(API_SERVICE_NAME, API_VERSION, credentials=credentials)
-  return api_service
+  return build(API_SERVICE_NAME, API_VERSION, credentials=credentials)
 
 # Remove keyword arguments that are not set.
 def remove_empty_args(args):

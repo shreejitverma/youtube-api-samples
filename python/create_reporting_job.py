@@ -83,21 +83,21 @@ def create_reporting_job(youtube_reporting, report_type_id, **kwargs):
     **kwargs
   ).execute()
 
-  print ('Reporting job "%s" created for reporting type "%s" at "%s"'
-         % (reporting_job['name'], reporting_job['reportTypeId'],
-             reporting_job['createTime']))
+  print(
+      f"""Reporting job "{reporting_job['name']}" created for reporting type "{reporting_job['reportTypeId']}" at "{reporting_job['createTime']}\""""
+  )
 
 
 # Prompt the user to enter a report type id for the job. Then return the id.
 def get_report_type_id_from_user():
   report_type_id = raw_input('Please enter the reportTypeId for the job: ')
-  print ('You chose "%s" as the report type Id for the job.' % report_type_id)
+  print(f'You chose "{report_type_id}" as the report type Id for the job.')
   return report_type_id
 
 # Prompt the user to set a job name
 def prompt_user_to_set_job_name():
   job_name = raw_input('Please set a name for the job: ')
-  print ('Great! "%s" is a memorable name for this job.' % job_name)
+  print(f'Great! "{job_name}" is a memorable name for this job.')
   return job_name
 
 
